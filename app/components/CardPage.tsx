@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dancing_Script } from 'next/font/google';
 import { Mystery_Quest } from 'next/font/google';
+import Image from 'next/image';
 
 interface CardPageProps {
   title?: string;
@@ -24,9 +25,9 @@ const mysteryQuest = Mystery_Quest({
   weight: ['400'],
 });
 
-const getPageNumberStyle = (pageNumber: number) => {
+const getPageNumberStyle = (pageNumber: number): React.CSSProperties => {
   return {
-    position: 'absolute' as 'absolute',
+    position: 'absolute',
     bottom: 10,
     left: pageNumber % 2 === 0 ? 15 : 'unset',
     right: pageNumber % 2 !== 0 ? 15 : 'unset',
@@ -58,7 +59,7 @@ const CardPage: React.FC<CardPageProps> = ({
   };
 
   const ImageElem = imageUrl ? (
-    <img className="my-5" src={imageUrl} alt="card" style={imageStyles} />
+    <Image className="my-5" src={imageUrl} alt="card" width={200} height={200} style={imageStyles} />
   ) : null;
 
   return (
